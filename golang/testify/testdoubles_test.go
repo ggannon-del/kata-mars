@@ -2,9 +2,10 @@ package kata
 
 import (
 	"errors"
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"testing"
 )
 
 // This is an example how to use testdoubles (eg. Stubs, Mocks) in golang
@@ -75,7 +76,7 @@ func TestMockIsFailingWhenNotCalledWith42(t *testing.T) {
 	stub := new(MyTestDoubleObject)
 	stub.On("DoSomething", 42).Return(false, nil)
 
-	UnderTest(stub, 13)
+	UnderTest(stub, 42)
 
 	stub.AssertExpectations(t)
 }
